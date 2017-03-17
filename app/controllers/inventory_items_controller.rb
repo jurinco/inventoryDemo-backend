@@ -59,25 +59,19 @@ class InventoryItemsController < ApplicationController
   end
 
   def create
-    request.headers.each { |key , value|     puts "header #{key} is #{value}"}
-
     attrs = Hash.new
     attrs[:productName] = params[:inventory_item]['productName']
     attrs[:upc] = params[:inventory_item]['upc']
     attrs[:quantity] = params[:inventory_item]['quantity']
     attrs[:employeeId] = params[:inventory_item]['employeeId']
     if params[:inventory_item][:photoUri].class == ActionDispatch::Http::UploadedFile
-      puts "params[:inventory_item][:photoUri] is ActionDispatch::Http::UploadedFile"
       attrs[:photoUri] = uploadFileToS3(params[:inventory_item][:photoUri])
     elsif params[:inventory_item]['photoUri'] != nil
-      puts "params[:inventory_item][:photoUri] is not nil"
       attrs[:photoUri] = params[:inventory_item]['photoUri']
     end
     if params[:inventory_item][:signatureUri].class == ActionDispatch::Http::UploadedFile
-      puts "params[:inventory_item][:signatureUri] is ActionDispatch::Http::UploadedFile"
       attrs[:signatureUri] = uploadFileToS3(params[:inventory_item][:signatureUri])
     elsif params[:inventory_item]['signatureUri'] != nil
-      puts "params[:inventory_item][:signatureUri] is not nil"
       attrs[:signatureUri] = params[:inventory_item]['signatureUri']
     end
     @inventory_item = InventoryItem.new(attrs)
@@ -85,8 +79,8 @@ class InventoryItemsController < ApplicationController
       if @inventory_item.save
         flash[:notice] = 'InventoryItem was successfully created.'
         format.html { redirect_to(@inventory_item) }
-        format.xml { render :xml => @inventory_item.to_s, :status => :created, :location => @inventory_item }
-        format.json { render :json => @inventory_item.to_s, :status => :created, :location => @inventory_item }
+        format.xml { head :ok }
+        format.json { head :ok }
       else
         format.html { render :action => "new" }
         format.json { render :json => @inventory_item.errors, :status => :unprocessable_entity }
@@ -103,17 +97,13 @@ class InventoryItemsController < ApplicationController
     attrs[:quantity] = params[:inventory_item]['quantity']
     attrs[:employeeId] = params[:inventory_item]['employeeId']
     if params[:inventory_item][:photoUri].class == ActionDispatch::Http::UploadedFile
-      puts "params[:inventory_item][:photoUri] is ActionDispatch::Http::UploadedFile"
       attrs[:photoUri] = uploadFileToS3(params[:inventory_item][:photoUri])
     elsif params[:inventory_item]['photoUri'] != nil
-      puts "params[:inventory_item][:photoUri] is not nil"
       attrs[:photoUri] = params[:inventory_item]['photoUri']
     end
     if params[:inventory_item][:signatureUri].class == ActionDispatch::Http::UploadedFile
-      puts "params[:inventory_item][:signatureUri] is ActionDispatch::Http::UploadedFile"
       attrs[:signatureUri] = uploadFileToS3(params[:inventory_item][:signatureUri])
     elsif params[:inventory_item]['signatureUri'] != nil
-      puts "params[:inventory_item][:signatureUri] is not nil"
       attrs[:signatureUri] = params[:inventory_item]['signatureUri']
     end
     respond_to do |format|
