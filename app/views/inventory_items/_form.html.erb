@@ -1,4 +1,4 @@
-<%= form_for(@inventory_item) do |f| %>
+<%= form_for(@inventory_item, html: {class: 'form-horizontal'}) do |f| %>
   <% if @inventory_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@inventory_item.errors.count, "error") %> prohibited this inventory_item from being saved:</h2>
@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-    <div class="form-group row">
-      <%= f.label :productName, {class: 'col-2 col-form-label'} %>
-      <div class="col-10">
+    <div class="form-group">
+      <%= f.label :productName, {class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label'} %>
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
         <%= f.text_field :productName, {class: 'form-control'} %>
       </div>
     </div>
 
-    <div class="form-group row">
-      <%= f.label :upc, {class: 'col-2 col-form-label'} %>
-      <div class="col-10">
+    <div class="form-group">
+      <%= f.label :upc, {class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label'} %>
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
         <%= f.number_field :upc, {class: 'form-control'} %>
       </div>
     </div>
 
-    <div class="form-group row">
-      <%= f.label :quantity, {class: 'col-2 col-form-label'} %>
-      <div class="col-10">
+    <div class="form-group">
+      <%= f.label :quantity, {class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label'} %>
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
         <%= f.number_field :quantity, {class: 'form-control'} %>
       </div>
     </div>
 
-    <div class="form-group row">
-      <%= f.label :employeeId, {class: 'col-2 col-form-label'} %>
-      <div class="col-10">
+    <div class="form-group">
+      <%= f.label :employeeId, {class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label'} %>
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
         <%= f.text_field :employeeId, {class: 'form-control'} %>
       </div>
     </div>
 
-    <div class="form-group row">
-      <%= f.label :photoUri, {class: 'col-2 col-form-label'} %>
-      <div class="col-4" style="position: relative">
+    <div class="form-group">
+      <%= f.label :photoUri, {class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label'} %>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="position: relative">
         <% if @inventory_item.photoUri != nil %>
             <img src="<%= @inventory_item.photoUri %>" style="width:100%; height:auto">
             <button type="button" style="position: absolute; top: 5px; right: 20px" class="btn btn-sm btn-danger">Remove</button>
@@ -50,9 +50,9 @@
       </div>
     </div>
 
-    <div class="form-group row">
-      <%= f.label :signatureUri, {class: 'col-2 col-form-label'} %>
-      <div class="col-4">
+    <div class="form-group">
+      <%= f.label :signatureUri, {class: 'col-lg-2 col-md-2 col-sm-2 col-xs-2 control-label'} %>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <% if @inventory_item.signatureUri != nil %>
             <img src="<%= @inventory_item.signatureUri %>" style="width:100%; height:auto">
             <button type="button" style="position: absolute; top: 5px; right: 20px" class="btn btn-sm btn-danger">Remove</button>
@@ -61,8 +61,8 @@
       </div>
     </div>
 
-    <div class="form-group row">
-      <div class="offset-sm-2 col-sm-10">
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-10 col-md-10 col-sm-10 col-xs-10">
         <%= f.submit :class => 'btn btn-primary' %>
         <%= link_to 'Cancel', inventory_items_path, {class: "btn btn-secondary"} %>
       </div>

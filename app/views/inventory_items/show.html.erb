@@ -1,37 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row my-3">
-  <div class="col-md-2"><%= link_to 'Back', inventory_items_path, {class: 'btn btn-secondary'} %></div>
-  <div class="col-md-8">
-    <h4 class="text-center"><%= @inventory_item.productName %></h4>
-  </div>
-  <div class="col-md-2 text-right"> <%= link_to 'Edit', edit_inventory_item_path(@inventory_item), {class: 'btn btn-primary'} %></div>
+<div class="text-center clearfix" style="margin-bottom: 1em">
+  <%= link_to 'Back', inventory_items_path, {class: 'btn btn-default pull-left'} %>
+  <h3 style="display: inline" class="text-center"><%= @inventory_item.productName %></h3>
+  <%= link_to 'Edit', edit_inventory_item_path(@inventory_item), {class: 'btn btn-primary pull-right'} %>
 </div>
 
 
 <ul class="list-group">
   <li class="list-group-item">
-    <div class="col-2"><strong>Product name:</strong></div>
-    <div class="col-2"><%= @inventory_item.productName %></div>
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><strong>Product name:</strong></div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= @inventory_item.productName %></div>
+    </div>
   </li>
   <li class="list-group-item">
-    <div class="col-2"><strong>UPC:</strong></div>
-    <div class="col-2"><%= @inventory_item.upc %></div>
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><strong>UPC:</strong></div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= @inventory_item.upc %></div>
+    </div>
   </li>
   <li class="list-group-item">
-    <div class="col-2"><strong>Quantity:</strong></div>
-    <div class="col-2"><%= @inventory_item.quantity %></div>
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><strong>Quantity:</strong></div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= @inventory_item.quantity %></div>
+    </div>
   </li>
   <li class="list-group-item">
-    <div class="col-2"><strong>Employee ID:</strong></div>
-    <div class="col-2"><%= @inventory_item.employeeId %></div>
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><strong>Employee ID:</strong></div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><%= @inventory_item.employeeId %></div>
+    </div>
   </li>
   <li class="list-group-item">
-    <div class="col-2"><strong>Photo:</strong></div>
-    <div class="col-4"><img src="<%= @inventory_item.photoUri %>" style="width:100%; height:auto"></div>
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><strong>Photo:</strong></div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <img src="<%= @inventory_item.photoUri %>" style="width:100%; height:auto"></div>
+    </div>
   </li>
   <li class="list-group-item">
-    <div class="col-2"><strong>Signature:</strong></div>
-    <div class="col-4"><img src="<%= @inventory_item.signatureUri %>" style="width:100%; height:auto"></div>
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><strong>Signature:</strong></div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <img src="<%= @inventory_item.signatureUri %>" style="width:100%; height:auto"></div>
+    </div>
   </li>
 </ul>
