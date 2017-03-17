@@ -85,8 +85,8 @@ class InventoryItemsController < ApplicationController
       if @inventory_item.save
         flash[:notice] = 'InventoryItem was successfully created.'
         format.html { redirect_to(@inventory_item) }
-        format.xml { render :xml => @inventory_item, :status => :created, :location => @inventory_item }
-        format.json { render :json => @inventory_item, :status => :created, :location => @inventory_item }
+        format.xml { render :xml => @inventory_item.to_s, :status => :created, :location => @inventory_item }
+        format.json { render :json => @inventory_item.to_s, :status => :created, :location => @inventory_item }
       else
         format.html { render :action => "new" }
         format.json { render :json => @inventory_item.errors, :status => :unprocessable_entity }
