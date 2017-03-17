@@ -59,7 +59,7 @@ class InventoryItemsController < ApplicationController
   end
 
   def create
-    puts "@_headers is #{@_headers}"
+    puts "headers is #{request.headers}"
     attrs = Hash.new
     attrs[:productName] = params[:inventory_item]['productName']
     attrs[:upc] = params[:inventory_item]['upc']
