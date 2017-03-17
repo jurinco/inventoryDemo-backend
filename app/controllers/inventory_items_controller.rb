@@ -59,6 +59,7 @@ class InventoryItemsController < ApplicationController
   end
 
   def create
+    puts "params is #{params}"
     attrs = Hash.new
     attrs[:productName] = params[:inventory_item]['productName']
     attrs[:upc] = params[:inventory_item]['upc']
